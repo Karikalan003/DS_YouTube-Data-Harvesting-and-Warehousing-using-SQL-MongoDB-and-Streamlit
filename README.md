@@ -66,13 +66,12 @@ Channel:
 
    
 # Streamlit Dashboard:
-
-. Created the sidebar and title interface 
-. "button" created to access the and load the data by using channel_id to MongoDB
-. "button" created to access the and migrate the data by using channel_id to Postgre SQL
-. "table" created for multiple data views such as channel, playlist, video, comment through "radio" button
-. write a code for creating data for given 10 questions
-. Data Visualization created for the above questions
+1. Created the sidebar and title interface 
+2. "button" created to access the and load the data by using channel_id to MongoDB
+3. "button" created to access the and migrate the data by using channel_id to Postgre SQL
+4. "table" created for multiple data views such as channel, playlist, video, comment through "radio" button
+5. write a code for creating data for given 10 questions
+6. Data Visualization created for the above questions
 
 
 Finally successfully created "streamlit" dashboard and accessed each options  
