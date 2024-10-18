@@ -7,10 +7,11 @@ LinkedIn : https://www.linkedin.com/in/karikalan-r-3210b1
 This project is designed to harvest YouTube data through its API and store the collected data in a SQL database. A Streamlit web application is used to display and analyze this data. The project allows users to retrieve various YouTube metrics (videos, channels, playlists) and provides a platform for easy interaction with the data. This solution is suitable for anyone looking to analyze YouTube data for insights or archival purposes.
 
 Features
-YouTube Data Harvesting: Fetch video, channel, and playlist details using the YouTube Data API.
+YouTube Data Harvesting: Fetch video, channel, and playlist, comment details using the YouTube Data API.
+MongoDB: Created data frames are stored in MongoDB database
 SQL Database: Store and manage harvested data in a structured SQL database for efficient querying.
 Streamlit Dashboard: Visualize and interact with the data using a clean, easy-to-use Streamlit interface.
-Data Analysis: Perform data analysis and extract insights, including video performance, engagement, and growth trends.
+Data Analysis: Perform data analysis and extract insights, including video performance, engagement, and growth trends and data viualization. 
 
 # Requirements
 
@@ -25,16 +26,9 @@ YouTube Data API Key
 Pandas
 
 
-Create a Postgre SQL database to store the YouTube data. 
-
-Get YouTube API Key:
-
-Sign up for a YouTube Data API key by following this guide.
-
-Set up environment variables:
 
 # Created user defined functions:
-Below functions are to create the data frame for the several information from the youtube API
+Below functions are to create the data frames for getting several information from the youtube API
 1.get_channel_info, 
 2.get_video_ids, 
 3.get_video_info, 
@@ -43,23 +37,47 @@ Below functions are to create the data frame for the several information from th
 
 # Insert collected data to MongoDB and Stored:
 Through using mongo connection have stored all the data frames are stored in MongoDB.
+naming all the data bases seperatley to access the DBs 
 
 
-
-Data Stored in SQL
+# Data Stored in SQL
 Channel: 
-Channel Data: Channel ID, Title, Subscriber Count, Video Count, and Description.
-Video Data: Video ID, Title, View Count, Like Count, Comment Count, and Video Duration.
-Playlist Data: Playlist ID, Title, Video Count, and associated channel.
-Streamlit Dashboard
-The Streamlit dashboard provides a visual interface to:
+1."channel" Data: 
+   . channel_name, channel_idD, subscription_count, channel_views, total_videos, channel_description, playlist_id
+   . Fetched the data columns from SQL by using Mongo and SQL connections through for loop
+   . Function coded to load the data from data frame and mongoDB to SQL
 
-Display harvested data
-Search channels or videos by keywords
-Analyze video statistics like views, likes, comments, and more
-Plot trends in subscriber growth, video popularity, etc.
-Contributing
-If you want to contribute to this project, feel free to create a pull request or raise an issue. Contributions are always welcome!
+2."playlist" Data:
+   . Playlist_Name, Playlist_Id, Channel_Name, Channel_Id, Published_At, Video_Count
+   . Fetched the data columns from SQL by using Mongo and SQL connections through for loop
+   . Function coded to load the data from data frame and mongoDB to SQL
 
-License
-This project is licensed under the MIT License.
+3."video" Data:
+   . Channel_Name, Channel_Id, Video_Id, Video_Name, Video_Description, Tags, Published_Date, View_Count, 
+     Like_Count, Favorite_Count, Duration, Thumbnail, Caption_Status, Definition, Comments_Count
+   . Fetched the data columns from SQL by using Mongo and SQL connections through for loop
+   . Function coded to load the data from data frame and mongoDB to SQL
+
+4. "comment" Data:
+   . Comment_Id, Video_Id, Comment_Author, Comment_Text, Comment_Published
+   . Fetched the data columns from SQL by using Mongo and SQL connections through for loop
+   . Function coded to load the data from data frame and mongoDB to SQL
+   
+
+   
+# Streamlit Dashboard:
+
+. Created the sidebar and title interface 
+. "button" created to access the and load the data by using channel_id to MongoDB
+. "button" created to access the and migrate the data by using channel_id to Postgre SQL
+. "table" created for multiple data views such as channel, playlist, video, comment through "radio" button
+. write a code for creating data for given 10 questions
+. Data Visualization created for the above questions
+
+
+Finally successfully created "streamlit" dashboard and accessed each options  
+
+
+
+
+
